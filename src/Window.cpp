@@ -1,5 +1,7 @@
 #include <iostream>
-#include "../include/Window.hpp"
+#include "Window.hpp"
+#include "../include/Err.hpp"
+#include "SDL2.hpp"
 
 namespace kit2d {
 
@@ -13,14 +15,13 @@ namespace kit2d {
       width, height,
       flags);
 
-    if (sdlWindow == NULL) {
-      std::cout << "Could not create window" << std::endl;
+    if (sdlWindow == nullptr) {
+      throw Err {};
     }
   }
 
   Window::~Window() {
     SDL_DestroyWindow(sdlWindow);
-    std::cout << "Destroying window" << std::endl;
   }
 
   void Window::loop() {

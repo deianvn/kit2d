@@ -2,13 +2,12 @@
 #define KIT2D_FLAGS_HPP
 
 #include <cstdint>
-#include "../src/SDL2.hpp"
 
 namespace kit2d {
 
   class Flags {
   public:
-    const static Uint32
+    const static uint32_t
       INIT_TIMER,
       INIT_AUDIO,
       INIT_VIDEO,
@@ -39,7 +38,6 @@ namespace kit2d {
       WINDOW_TOOLTIP,
       WINDOW_POPUP_MENU;
     const static int
-      RESULT_INIT_OK,
       WINDOWPOS_CENTERED,
       WINDOWPOS_UNDEFINED;
   };

@@ -3,7 +3,8 @@
 
 #include <string>
 #include <cstdint>
-#include "Flags.hpp"
+#include "SDL2.hpp"
+#include "../include/Flags.hpp"
 
 namespace kit2d {
 
@@ -18,7 +19,10 @@ namespace kit2d {
     ~Window();
 
     void loop();
+  private:
+    SDL_Window* sdlWindow;
   };
+
 }
 
 #endif
