@@ -39,4 +39,12 @@ namespace kit2d {
     return Point { rect.x, rect.y };
   }
 
+  Rect Kit::getDisplayBounds(int displayIndex) {
+    SDL_Rect rect;
+    if (SDL_GetDisplayBounds(displayIndex, &rect) != 0) {
+      throw Err {};
+    }
+    return Rect { rect.x, rect.y, rect.w, rect.h };
+  }
+
 }

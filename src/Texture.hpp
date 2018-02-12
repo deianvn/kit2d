@@ -1,8 +1,9 @@
 #ifndef KIT2D_TEXTURE_HPP
 #define KIT2D_TEXTURE_HPP
 
+#include "SDL2.hpp"
 #include "TextureRegion.hpp"
-#include "Rect.hpp"
+#include "../include/Rect.hpp"
 
 namespace kit2d {
 
@@ -13,6 +14,8 @@ namespace kit2d {
     inline TextureRegion getRegion(Rect srcRect) {
       return getRegion(srcRect.x, srcRect.y, srcRect.width, srcRect.height);
     }
+
+    SDL_Texture* internal_sdlTexture;
   };
 
 }

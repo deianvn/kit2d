@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include "Point.hpp"
+#include "Rect.hpp"
 
 namespace kit2d {
 
@@ -15,6 +16,8 @@ namespace kit2d {
     void useDisplay(int displayIndex);
     Point getDisplaySize(int displayIndex);
     Point getDisplaySize() { return getDisplaySize(displayIndex); }
+    Rect getDisplayBounds(int displayIndex);
+    Rect getDisplayBounds() { return getDisplayBounds(displayIndex); }
 
     static Kit* DEFAULT;
   private:
