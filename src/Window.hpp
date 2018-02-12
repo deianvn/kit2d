@@ -23,7 +23,7 @@ namespace kit2d {
 
     void loop();
     Renderer renderer();
-    void setOnRenderCallback(OnRenderCallback onRenderCallback) {
+    void onRender(OnRenderCallback onRenderCallback) {
       this->onRenderCallback = onRenderCallback;
     }
     Texture loadTexture(const char* path);

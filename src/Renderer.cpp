@@ -7,8 +7,10 @@ namespace kit2d {
     SDL_RenderClear(sdlRenderer);
   }
 
-  void Renderer::drawTexture(Texture& texture) {
-    SDL_RenderCopy(sdlRenderer, texture.internal_sdlTexture, nullptr, nullptr);
+  void Renderer::drawTexture(Texture& texture, int x, int y) {
+    texture.internal_destBounds.x = x;
+    texture.internal_destBounds.y = y;
+    SDL_RenderCopy(sdlRenderer, texture.internal_sdlTexture, nullptr, &texture.internal_destBounds);
   }
 
   void Renderer::present() {

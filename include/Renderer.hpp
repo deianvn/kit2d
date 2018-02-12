@@ -11,7 +11,7 @@ namespace kit2d {
     void setClipRect();
     void setColor();
     void clear();
-    void drawTexture(Texture& texture);
+    void drawTexture(Texture& texture, int x, int y);
     void drawRegion();
     void drawPoint();
     void drawLine();

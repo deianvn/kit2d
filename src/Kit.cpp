@@ -16,6 +16,7 @@ namespace kit2d {
   }
 
   void Kit::quit() {
+    Kit::DEFAULT = nullptr;
     SDL_Quit();
   }
 

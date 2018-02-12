@@ -2,6 +2,8 @@
 #include "../include/Err.hpp"
 #include "SDL2.hpp"
 
+#include <iostream>
+
 namespace kit2d {
 
   Window::Window(const char* title,
@@ -26,13 +28,13 @@ namespace kit2d {
   }
 
   void Window::loop() {
-    bool running = true;
     SDL_Event event;
     Renderer r = renderer();
-    while (running) {
+    while (true) {
       SDL_PollEvent(&event);
       if (event.type == SDL_QUIT) {
-        running = false;
+        std::cout << "Quit event" << std::endl;
+        break;
       }
       if (onRenderCallback != nullptr) {
         onRenderCallback(r);
@@ -52,7 +54,7 @@ namespace kit2d {
       throw Err {};
     }
     Texture texture {};
-    texture.internal_sdlTexture = sdlTexture;
+    texture.internal_setSdlTexture(sdlTexture);
     return texture;
   }
 

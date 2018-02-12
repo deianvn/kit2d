@@ -3,19 +3,25 @@
 
 #include "SDL2.hpp"
 #include "TextureRegion.hpp"
+#include "../include/Point.hpp"
 #include "../include/Rect.hpp"
 
 namespace kit2d {
 
   class Texture {
   public:
+    Texture();
+    ~Texture();
+    Point& getSize();
     TextureRegion getRegion(int x, int y, int width, int height);
-
     inline TextureRegion getRegion(Rect srcRect) {
       return getRegion(srcRect.x, srcRect.y, srcRect.width, srcRect.height);
     }
-
+    void internal_setSdlTexture(SDL_Texture* sdlTexture);
     SDL_Texture* internal_sdlTexture;
+    SDL_Rect internal_destBounds {};
+  private:
+    Point size {};
   };
 
 }
