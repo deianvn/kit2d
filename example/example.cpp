@@ -19,11 +19,15 @@ void loop(Kit& kit) {
     Flags::WINDOW_OPENGL };
   Texture texture = window.loadTexture("SDL_logo.png");
   TextureRegion textureRegion = texture.getRegion();
-  window.onRender([&textureRegion, &kit](auto& renderer) {
+  Sprite sprite { textureRegion };
+
+  window.onRender([&sprite, &kit](auto& renderer) {
     renderer.setColor(255, 0, 0, 255);
     renderer.clear();
-    renderer.draw(textureRegion, 0, 0);
-    renderer.present();
+    SpriteBatch sb {};
+    sb.add(sprite);
+    sb.process(renderer);
+    sprite.position.x += 0.1;
   });
   window.loop();
 }

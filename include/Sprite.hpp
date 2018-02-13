@@ -14,8 +14,10 @@ namespace kit2d {
     Sprite(TextureRegion textureRegion, float x, float y) :
       position(x, y), textureRegion(textureRegion) {}
 
-    const TextureRegion& getTextureRegion() {
-      return textureRegion;
+    void draw(Renderer& renderer) {
+      renderer.draw(textureRegion,
+        static_cast<int>(position.x),
+        static_cast<int>(position.y));
     }
 
     Vec2f position;
