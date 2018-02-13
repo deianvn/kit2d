@@ -2,6 +2,8 @@
 #include "../include/Err.hpp"
 #include "SDL2.hpp"
 
+#include <iostream>
+
 namespace kit2d {
 
   Kit* Kit::DEFAULT = nullptr;
@@ -13,6 +15,14 @@ namespace kit2d {
     if (SDL_Init(flags) != 0)
       throw Err {};
     Kit::DEFAULT = this;
+  }
+
+  Kit::~Kit() {
+    quit();
+  }
+
+  void Kit::run(KitRunnable kitRunnable) {
+    kitRunnable(*this);
   }
 
   void Kit::quit() {

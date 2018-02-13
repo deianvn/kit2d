@@ -20,6 +20,10 @@ namespace kit2d {
       throw Err {};
     }
     sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
+    if (sdlRenderer == nullptr) {
+      throw Err {};
+    }
+    renderer();
   }
 
   Window::~Window() {
@@ -27,14 +31,21 @@ namespace kit2d {
     SDL_DestroyWindow(sdlWindow);
   }
 
+  void Window::onRender(OnRenderCallback onRenderCallback) {
+    this->onRenderCallback = onRenderCallback;
+  }
+
   void Window::loop() {
     SDL_Event event;
     Renderer r = renderer();
-    while (true) {
-      SDL_PollEvent(&event);
-      if (event.type == SDL_QUIT) {
-        std::cout << "Quit event" << std::endl;
-        break;
+    bool running = true;
+
+    while (running) {
+      while (SDL_PollEvent(&event) != 0) {
+        if (event.type == SDL_QUIT) {
+          running = false;
+          break;
+        }
       }
       if (onRenderCallback != nullptr) {
         onRenderCallback(r);
@@ -43,9 +54,9 @@ namespace kit2d {
   }
 
   Renderer Window::renderer() {
-    Renderer renderer;
-    renderer.internal_setSdlRenderer(sdlRenderer);
-    return renderer;
+    Renderer r;
+    r.internal_setSdlRenderer(sdlRenderer);
+    return r;
   }
 
   Texture Window::loadTexture(const char *path) {
