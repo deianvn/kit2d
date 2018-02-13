@@ -10,11 +10,8 @@ namespace kit2d {
 
   class Renderer {
   public:
-    Renderer();
+    Renderer(SDL_Renderer* sdlRenderer);
     ~Renderer();
-    inline void internal_setSdlRenderer(SDL_Renderer* sdlRenderer) {
-      this->sdlRenderer = sdlRenderer;
-    }
     void setTarget();
     void setClipRect();
     void setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);

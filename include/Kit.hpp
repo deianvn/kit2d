@@ -18,10 +18,10 @@ namespace kit2d {
     void delay(int milliseconds);
     int countDisplays();
     void useDisplay(int displayIndex);
-    Point getDisplaySize(int displayIndex);
-    Point getDisplaySize() { return getDisplaySize(displayIndex); }
-    Rect getDisplayBounds(int displayIndex);
-    Rect getDisplayBounds() { return getDisplayBounds(displayIndex); }
+    const Point getDisplaySize(int displayIndex);
+    const Point getDisplaySize() { return getDisplaySize(displayIndex); }
+    const Rect getDisplayBounds(int displayIndex);
+    const Rect getDisplayBounds() { return getDisplayBounds(displayIndex); }
 
     static Kit* DEFAULT;
   private:

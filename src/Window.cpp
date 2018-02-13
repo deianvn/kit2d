@@ -23,7 +23,6 @@ namespace kit2d {
     if (sdlRenderer == nullptr) {
       throw Err {};
     }
-    renderer();
   }
 
   Window::~Window() {
@@ -44,7 +43,6 @@ namespace kit2d {
       while (SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
           running = false;
-          break;
         }
       }
       if (onRenderCallback != nullptr) {
@@ -53,10 +51,8 @@ namespace kit2d {
     }
   }
 
-  Renderer Window::renderer() {
-    Renderer r;
-    r.internal_setSdlRenderer(sdlRenderer);
-    return r;
+  const Renderer Window::renderer() {
+    return Renderer { sdlRenderer };
   }
 
   Texture Window::loadTexture(const char *path) {
@@ -64,9 +60,7 @@ namespace kit2d {
     if (sdlTexture == nullptr) {
       throw Err {};
     }
-    Texture texture {};
-    texture.internal_setSdlTexture(sdlTexture);
-    return texture;
+    return Texture { sdlTexture };
   }
 
 }

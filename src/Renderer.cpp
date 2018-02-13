@@ -4,7 +4,9 @@
 
 namespace kit2d {
 
-  Renderer::Renderer() {}
+  Renderer::Renderer(SDL_Renderer* sdlRenderer) {
+    this->sdlRenderer = sdlRenderer;
+  }
 
   Renderer::~Renderer() {}
 

@@ -5,18 +5,17 @@
 
 namespace kit2d {
 
-  Texture::Texture() {}
+  Texture::Texture(SDL_Texture* sdlTexture) {
+    internal_sdlTexture = sdlTexture;
+    SDL_QueryTexture(internal_sdlTexture, nullptr, nullptr, &size.x, &size.y);
+  }
   Texture::~Texture() {
     SDL_DestroyTexture(internal_sdlTexture);
   }
-  Point& Texture::getSize() {
+  const Point& Texture::getSize() {
     return size;
   }
-  TextureRegion Texture::getRegion(int x, int y, int width, int height) {
+  const TextureRegion Texture::getRegion(int x, int y, int width, int height) {
     return TextureRegion {};
-  }
-  void Texture::internal_setSdlTexture(SDL_Texture* sdlTexture) {
-    internal_sdlTexture = sdlTexture;
-    SDL_QueryTexture(internal_sdlTexture, nullptr, nullptr, &size.x, &size.y);
   }
 }

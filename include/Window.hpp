@@ -22,7 +22,7 @@ namespace kit2d {
     ~Window();
 
     void loop();
-    Renderer renderer();
+    const Renderer renderer();
     void onRender(OnRenderCallback onRenderCallback);
     Texture loadTexture(const char* path);
   private:

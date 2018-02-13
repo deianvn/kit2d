@@ -42,7 +42,7 @@ namespace kit2d {
     displayIndex = index;
   }
 
-  Point Kit::getDisplaySize(int index) {
+  const Point Kit::getDisplaySize(int index) {
     SDL_Rect rect;
     if (SDL_GetDisplayBounds(index, &rect) != 0) {
       throw Err {};
@@ -50,7 +50,7 @@ namespace kit2d {
     return Point { rect.x, rect.y };
   }
 
-  Rect Kit::getDisplayBounds(int displayIndex) {
+  const Rect Kit::getDisplayBounds(int displayIndex) {
     SDL_Rect rect;
     if (SDL_GetDisplayBounds(displayIndex, &rect) != 0) {
       throw Err {};
