@@ -34,16 +34,26 @@ namespace kit2d {
     this->onRenderCallback = onRenderCallback;
   }
 
+  void Window::onUpdate(OnUpdateCallback onUpdateCallback) {
+    this->onUpdateCallback = onUpdateCallback;
+  }
+
   void Window::loop() {
     SDL_Event event;
     Renderer r = renderer();
     bool running = true;
+    uint64_t currentTime = SDL_GetPerformanceCounter(), lastTime;
 
     while (running) {
       while (SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
           running = false;
         }
+      }
+      lastTime = currentTime;
+      currentTime = SDL_GetPerformanceCounter();
+      if (onUpdateCallback != nullptr) {
+        onUpdateCallback(static_cast<float>(currentTime - lastTime) / SDL_GetPerformanceFrequency());
       }
       if (onRenderCallback != nullptr) {
         onRenderCallback(r);

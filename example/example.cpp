@@ -20,14 +20,26 @@ void loop(Kit& kit) {
   Texture texture = window.loadTexture("SDL_logo.png");
   TextureRegion textureRegion = texture.getRegion();
   Sprite sprite { textureRegion };
+  long frames = 0;
+  float elapsed = 0.0f;
 
   window.onRender([&sprite, &kit](auto& renderer) {
     renderer.setColor(255, 0, 0, 255);
     renderer.clear();
+    //renderer.draw(textureRegion, 0, 0);
+    //renderer.present();
     SpriteBatch sb {};
     sb.add(sprite);
     sb.process(renderer);
-    sprite.position.x += 0.1;
+  });
+  window.onUpdate([&sprite, &elapsed, &frames](auto deltaTime) {
+    sprite.position.x += 10 * deltaTime;
+    frames++;
+    elapsed += deltaTime;
+    int e = static_cast<int>(elapsed);
+    if (e > 0) {
+      std::cout << frames / e << std::endl;
+    }
   });
   window.loop();
 }

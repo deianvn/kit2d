@@ -2,7 +2,7 @@
 #define KIT2D_SPRITE_HPP
 
 #include "TextureRegion.hpp"
-#include "Vec2f.hpp"
+#include "Vec2.hpp"
 
 namespace kit2d {
 
@@ -20,7 +20,7 @@ namespace kit2d {
         static_cast<int>(position.y));
     }
 
-    Vec2f position;
+    Vec2 position;
   private:
     TextureRegion textureRegion;
   };
