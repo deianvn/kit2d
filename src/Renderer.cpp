@@ -20,7 +20,7 @@ namespace kit2d {
       throw Err {};
   }
 
-  void Renderer::drawTexture(Texture& texture, int x, int y) {
+  void Renderer::draw(Texture& texture, int x, int y) {
     auto& size = texture.getSize();
     destRect.x = x;
     destRect.y = y;
@@ -28,6 +28,15 @@ namespace kit2d {
     destRect.h = size.y;
     if (SDL_RenderCopy(sdlRenderer, texture.internal_sdlTexture,
       nullptr, &destRect) != 0) throw Err {};
+  }
+
+  void Renderer::draw(TextureRegion textureRegion, int x, int y) {
+    destRect.x = x;
+    destRect.y = y;
+    destRect.w = textureRegion.internal_sdl_srcRect.w;
+    destRect.h = textureRegion.internal_sdl_srcRect.h;
+    if (SDL_RenderCopy(sdlRenderer, textureRegion.internal_sdl_texture,
+      &textureRegion.internal_sdl_srcRect, &destRect) != 0) throw Err {};
   }
 
   void Renderer::present() {

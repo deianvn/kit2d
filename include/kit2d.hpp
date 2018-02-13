@@ -7,5 +7,6 @@
 #include "Point.hpp"
 #include "Rect.hpp"
 #include "Window.hpp"
+#include "Sprite.hpp"
 
 #endif

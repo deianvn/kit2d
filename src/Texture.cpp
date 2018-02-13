@@ -15,7 +15,17 @@ namespace kit2d {
   const Point& Texture::getSize() {
     return size;
   }
-  const TextureRegion Texture::getRegion(int x, int y, int width, int height) {
-    return TextureRegion {};
+  const TextureRegion Texture::getRegion() {
+    return TextureRegion {
+      internal_sdlTexture,
+      SDL_Rect { 0, 0, size.x, size.y }
+    };
   }
+  const TextureRegion Texture::getRegion(int x, int y, int width, int height) {
+    return TextureRegion {
+      internal_sdlTexture,
+      SDL_Rect { x, y, width, height }
+    };
+  }
+
 }

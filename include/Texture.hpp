@@ -13,6 +13,7 @@ namespace kit2d {
     Texture(SDL_Texture* sdlTexture);
     ~Texture();
     const Point& getSize();
+    const TextureRegion getRegion();
     const TextureRegion getRegion(int x, int y, int width, int height);
     inline const TextureRegion getRegion(Rect srcRect) {
       return getRegion(srcRect.x, srcRect.y, srcRect.width, srcRect.height);
