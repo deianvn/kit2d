@@ -10,15 +10,8 @@ namespace kit2d {
 
   class SpriteBatch {
   public:
-    void add(Sprite& sprite) {
-      sprites.push_back(&sprite);
-    }
-    void process(Renderer& renderer) {
-      for (auto sprite : sprites) {
-        sprite->draw(renderer);
-      }
-      renderer.present();
-    }
+    void add(Sprite& sprite);
+    void process(Renderer& renderer);
   private:
     std::vector<Sprite*> sprites {};
   };

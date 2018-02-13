@@ -21,5 +21,10 @@ file(GLOB CORE_SOURCE_FILES
 add_library(kit2d ${CORE_SOURCE_FILES})
 target_link_libraries(kit2d ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 
+file(GLOB SPRITE_SOURCE_FILES
+  "src/sprite/*.cpp"
+)
+add_library(kit2d-sprite ${SPRITE_SOURCE_FILES})
+
 add_executable(example example/example.cpp)
-target_link_libraries(example kit2d)
+target_link_libraries(example kit2d kit2d-sprite)

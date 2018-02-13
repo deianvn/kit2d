@@ -2,6 +2,7 @@
 #define KIT2D_SPRITE_SPRITE_HPP
 
 #include "../core/TextureRegion.hpp"
+#include "../core/Renderer.hpp"
 #include "Vec2.hpp"
 
 namespace kit2d {
@@ -14,11 +15,7 @@ namespace kit2d {
     Sprite(TextureRegion textureRegion, float x, float y) :
       position(x, y), textureRegion(textureRegion) {}
 
-    void draw(Renderer& renderer) {
-      renderer.draw(textureRegion,
-        static_cast<int>(position.x),
-        static_cast<int>(position.y));
-    }
+    void draw(Renderer& renderer);
 
     Vec2 position;
   private:
