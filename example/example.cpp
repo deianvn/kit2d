@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "../include/kit2d.hpp"
+#include "../include/kit2d/core.hpp"
+#include "../include/kit2d/sprite.hpp"
 
 using namespace kit2d;
 

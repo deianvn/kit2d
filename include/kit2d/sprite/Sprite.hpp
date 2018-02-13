@@ -1,7 +1,7 @@
-#ifndef KIT2D_SPRITE_HPP
-#define KIT2D_SPRITE_HPP
+#ifndef KIT2D_SPRITE_SPRITE_HPP
+#define KIT2D_SPRITE_SPRITE_HPP
 
-#include "TextureRegion.hpp"
+#include "../core/TextureRegion.hpp"
 #include "Vec2.hpp"
 
 namespace kit2d {

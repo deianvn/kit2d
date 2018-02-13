@@ -1,5 +1,5 @@
-#ifndef KIT2D_RECT_HPP
-#define KIT2D_RECT_HPP
+#ifndef KIT2D_CORE_RECT_HPP
+#define KIT2D_CORE_RECT_HPP
 
 struct Rect {
   Rect() :

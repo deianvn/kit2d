@@ -1,5 +1,5 @@
-#ifndef KIT2D_TEXTURE_HPP
-#define KIT2D_TEXTURE_HPP
+#ifndef KIT2D_CORE_TEXTURE_HPP
+#define KIT2D_CORE_TEXTURE_HPP
 
 #include "SDL2.hpp"
 #include "TextureRegion.hpp"

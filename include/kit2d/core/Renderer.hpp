@@ -1,5 +1,5 @@
-#ifndef KIT2D_RENDERER_HPP
-#define KIT2D_RENDERER_HPP
+#ifndef KIT2D_CORE_RENDERER_HPP
+#define KIT2D_CORE_RENDERER_HPP
 
 #include "SDL2.hpp"
 #include "Texture.hpp"

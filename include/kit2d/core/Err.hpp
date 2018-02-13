@@ -1,5 +1,5 @@
-#ifndef KIT2D_ERR_HPP
-#define KIT2D_ERR_HPP
+#ifndef KIT2D_CORE_ERR_HPP
+#define KIT2D_CORE_ERR_HPP
 
 #include <stdexcept>
 

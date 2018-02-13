@@ -1,5 +1,5 @@
-#include "../include/SDL2.hpp"
-#include "../include/Texture.hpp"
+#include "../../include/kit2d/core/SDL2.hpp"
+#include "../../include/kit2d/core/Texture.hpp"
 
 #include <iostream>
 

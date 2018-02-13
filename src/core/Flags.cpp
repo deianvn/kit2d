@@ -1,5 +1,5 @@
-#include "../include/Flags.hpp"
-#include "../include/SDL2.hpp"
+#include "../../include/kit2d/core/Flags.hpp"
+#include "../../include/kit2d/core/SDL2.hpp"
 
 namespace kit2d {
 

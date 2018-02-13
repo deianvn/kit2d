@@ -1,6 +1,6 @@
-#include "../include/Kit.hpp"
-#include "../include/Err.hpp"
-#include "../include/SDL2.hpp"
+#include "../../include/kit2d/core/Kit.hpp"
+#include "../../include/kit2d/core/Err.hpp"
+#include "../../include/kit2d/core/SDL2.hpp"
 
 #include <iostream>
 

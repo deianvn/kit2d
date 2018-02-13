@@ -1,5 +1,5 @@
-#ifndef KIT2D_POINT_HPP
-#define KIT2D_POINT_HPP
+#ifndef KIT2D_CORE_POINT_HPP
+#define KIT2D_CORE_POINT_HPP
 
 struct Point {
   Point() : x(0), y(0) {}

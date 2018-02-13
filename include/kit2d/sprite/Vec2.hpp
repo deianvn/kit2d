@@ -1,5 +1,5 @@
-#ifndef KIT2D_VEC2_HPP
-#define KIT2D_VEC2_HPP
+#ifndef KIT2D_SPRITE_VEC2_HPP
+#define KIT2D_SPRITE_VEC2_HPP
 
 namespace kit2d {
 

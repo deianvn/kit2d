@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/Renderer.hpp"
-#include "../include/Err.hpp"
+#include "../../include/kit2d/core/Renderer.hpp"
+#include "../../include/kit2d/core/Err.hpp"
 
 namespace kit2d {
 

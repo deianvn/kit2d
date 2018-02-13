@@ -1,5 +1,5 @@
-#ifndef KIT2D_KIT_HPP
-#define KIT2D_KIT_HPP
+#ifndef KIT2D_CORE_KIT_HPP
+#define KIT2D_CORE_KIT_HPP
 
 #include <cstdint>
 #include <functional>
