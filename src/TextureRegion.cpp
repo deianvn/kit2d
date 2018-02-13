@@ -1,4 +1,4 @@
-#include "TextureRegion.hpp"
+#include "../include/TextureRegion.hpp"
 
 namespace kit2d {
 

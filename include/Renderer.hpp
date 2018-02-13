@@ -1,7 +1,10 @@
 #ifndef KIT2D_RENDERER_HPP
 #define KIT2D_RENDERER_HPP
 
+#include "SDL2.hpp"
 #include "Texture.hpp"
+
+#include <iostream>
 
 namespace kit2d {
 
@@ -9,6 +12,9 @@ namespace kit2d {
   public:
     Renderer();
     ~Renderer();
+    inline void internal_setSdlRenderer(SDL_Renderer* sdlRenderer) {
+      this->sdlRenderer = sdlRenderer;
+    }
     void setTarget();
     void setClipRect();
     void setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
@@ -20,6 +26,9 @@ namespace kit2d {
     void drawRect();
     void fillRect();
     void present();
+  private:
+    SDL_Renderer* sdlRenderer;
+    SDL_Rect destRect {};
   };
 
 }

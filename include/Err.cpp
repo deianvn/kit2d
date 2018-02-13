@@ -1,4 +1,4 @@
-#include "../include/SDL2.hpp"
+#include "SDL2.hpp"
 #include "../include/Err.hpp"
 
 namespace kit2d {

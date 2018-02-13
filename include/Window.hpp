@@ -1,12 +1,12 @@
 #ifndef KIT2D_WINDOW_HPP
 #define KIT2D_WINDOW_HPP
 
-#include <string>
 #include <cstdint>
 #include <functional>
-#include "Flags.hpp"
+#include "SDL2.hpp"
 #include "Renderer.hpp"
 #include "Texture.hpp"
+#include "Flags.hpp"
 
 namespace kit2d {
 
@@ -25,7 +25,12 @@ namespace kit2d {
     Renderer renderer();
     void onRender(OnRenderCallback onRenderCallback);
     Texture loadTexture(const char* path);
+  private:
+    SDL_Window* sdlWindow;
+    SDL_Renderer* sdlRenderer;
+    OnRenderCallback onRenderCallback;
   };
+
 }
 
 #endif

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Renderer.hpp"
+#include "../include/Renderer.hpp"
 #include "../include/Err.hpp"
 
 namespace kit2d {
@@ -20,14 +20,12 @@ namespace kit2d {
 
   void Renderer::drawTexture(Texture& texture, int x, int y) {
     auto& size = texture.getSize();
-    texture.internal_destBounds.x = x;
-    texture.internal_destBounds.y = y;
-    texture.internal_destBounds.w = size.x;
-    texture.internal_destBounds.h = size.y;
-    std::cout << sdlRenderer << " " << std::flush;
-    if (SDL_RenderCopy(sdlRenderer,
-      texture.internal_sdlTexture,
-      nullptr, nullptr) != 0) throw Err {};
+    destRect.x = x;
+    destRect.y = y;
+    destRect.w = size.x;
+    destRect.h = size.y;
+    if (SDL_RenderCopy(sdlRenderer, texture.internal_sdlTexture,
+      nullptr, &destRect) != 0) throw Err {};
   }
 
   void Renderer::present() {
