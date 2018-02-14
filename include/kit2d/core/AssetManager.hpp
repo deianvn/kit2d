@@ -13,27 +13,27 @@ namespace kit2d {
   public:
 
     using TextureMap = std::map<std::string,
-      const Texture>;
+      std::unique_ptr<Texture>>;
     using AtlasMap = std::map<std::string,
-      const Atlas>;
+      std::unique_ptr<Atlas>>;
 
-    AssetManager(Window& window) : window(window) {};
+    AssetManager(Context& context) : context(&context) {};
     virtual ~AssetManager();
 
     void process();
     bool ready();
 
     void loadTexture(const char* path);
-    void addTexture(const char* id, const Texture texture);
+    void addTexture(const char* id, Texture texture);
     const Texture& getTexture(const char* id);
 
-    void addAtlas(const char* id, const Atlas atlas);
+    void addAtlas(const char* id, Atlas atlas);
     void loadAtlas(const char* path);
 
   private:
-    Window& window;
-    //TextureMap textureMap;
-    //AtlasMap atlasMap;
+    Context* context;
+    TextureMap textureMap;
+    AtlasMap atlasMap;
   };
 
 }

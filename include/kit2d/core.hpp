@@ -2,6 +2,7 @@
 #define KIT2D_CORE_HPP
 
 #include "core/Kit.hpp"
+#include "core/Context.hpp"
 #include "core/Flags.hpp"
 #include "core/Err.hpp"
 #include "core/Point.hpp"

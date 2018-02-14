@@ -2,18 +2,15 @@
 #define KIT2D_CORE_RENDERER_HPP
 
 #include "SDL2.hpp"
+#include "Context.hpp"
 #include "Texture.hpp"
-
-#include <iostream>
 
 namespace kit2d {
 
   class Renderer {
   public:
-    Renderer(const Renderer& renderer) = delete;
-    Renderer(const Renderer&& renderer);
-    Renderer(SDL_Renderer* sdlRenderer);
-    ~Renderer();
+    Renderer(Context& context);
+    virtual ~Renderer();
     void setTarget();
     void setClipRect();
     void setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
@@ -26,7 +23,7 @@ namespace kit2d {
     void fillRect();
     void present();
   private:
-    SDL_Renderer* sdlRenderer;
+    Context* context { nullptr };
     SDL_Rect destRect {};
   };
 

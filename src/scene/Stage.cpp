@@ -7,7 +7,7 @@ namespace kit2d {
   }
 
   AssetManager Stage::createAssetManager() {
-    return AssetManager { window };
+    return AssetManager { window.getContext() };
   }
 
   void Stage::playScene(SceneRef scene) {

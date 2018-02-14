@@ -2,6 +2,7 @@
 #define KIT2D_CORE_TEXTURE_HPP
 
 #include "SDL2.hpp"
+#include "Context.hpp"
 #include "TextureRegion.hpp"
 #include "Point.hpp"
 #include "Rect.hpp"
@@ -10,18 +11,17 @@ namespace kit2d {
 
   class Texture {
   public:
-    Texture(const Texture& texture) = delete;
-    Texture(Texture&& texture);
-    Texture(SDL_Texture* sdlTexture);
+    Texture(Context& context);
     ~Texture();
+    void loadFromFile(const char* path);
     const Point& getSize() const;
-    const TextureRegion getRegion() const;
-    const TextureRegion getRegion(int x, int y, int width, int height) const;
-    inline const TextureRegion getRegion(Rect srcRect) const {
-      return getRegion(srcRect.x, srcRect.y, srcRect.width, srcRect.height);
-    }
-    SDL_Texture* internal_sdlTexture;
+    TextureRegion getRegion() const;
+    TextureRegion getRegion(int x, int y, int width, int height) const;
+    TextureRegion getRegion(Rect srcRect) const;
+
+    SDL_Texture* sdlTexture { nullptr };
   private:
+    Context* context { nullptr };
     Point size {};
   };
 

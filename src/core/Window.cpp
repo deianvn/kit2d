@@ -23,6 +23,7 @@ namespace kit2d {
     if (sdlRenderer == nullptr) {
       throw Err {};
     }
+    context = std::make_unique<Context>(sdlRenderer);
   }
 
   Window::~Window() {
@@ -40,7 +41,7 @@ namespace kit2d {
 
   void Window::loop() {
     SDL_Event event;
-    Renderer r = renderer();
+    Renderer renderer { *context };
     bool running = true;
     uint64_t currentTime = SDL_GetPerformanceCounter(), lastTime;
 
@@ -56,21 +57,13 @@ namespace kit2d {
         onUpdateCallback(static_cast<float>(currentTime - lastTime) / SDL_GetPerformanceFrequency());
       }
       if (onRenderCallback != nullptr) {
-        onRenderCallback(r);
+        onRenderCallback(renderer);
       }
     }
   }
 
-  const Renderer Window::renderer() {
-    return Renderer { sdlRenderer };
-  }
-
-  Texture Window::loadTexture(const char *path) {
-    SDL_Texture* sdlTexture = IMG_LoadTexture(sdlRenderer, path);
-    if (sdlTexture == nullptr) {
-      throw Err {};
-    }
-    return Texture { sdlTexture };
+  Context& Window::getContext() {
+    return *context;
   }
 
 }

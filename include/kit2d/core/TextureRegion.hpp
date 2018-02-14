@@ -7,12 +7,15 @@ namespace kit2d {
 
   class TextureRegion {
   public:
+    TextureRegion() = default;
+    TextureRegion(const TextureRegion& textureRegion) = default;
+    TextureRegion(TextureRegion&& textureRegion) = default;
     TextureRegion(SDL_Texture* texture, SDL_Rect srcRect) :
-      internal_sdl_texture(texture),
-      internal_sdl_srcRect(srcRect) {}
+      sdlTexture(texture),
+      sdlSrcRect(srcRect) {}
 
-    SDL_Texture* internal_sdl_texture;
-    SDL_Rect internal_sdl_srcRect;
+    SDL_Texture* sdlTexture { nullptr };
+    SDL_Rect sdlSrcRect {};
   };
 
 }
