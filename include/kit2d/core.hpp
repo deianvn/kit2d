@@ -10,5 +10,7 @@
 #include "core/Texture.hpp"
 #include "core/TextureRegion.hpp"
 #include "core/Renderer.hpp"
+#include "core/Atlas.hpp"
+#include "core/AssetManager.hpp"
 
 #endif

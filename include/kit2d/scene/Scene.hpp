@@ -1,7 +1,9 @@
 #ifndef KIT2D_SCENE_SCENE_HPP
 #define KIT2D_SCENE_SCENE_HPP
 
+#include "../core/AssetManager.hpp"
 #include "../sprite/SpriteBatch.hpp"
+#include "Director.hpp"
 
 namespace kit2d {
 
@@ -9,13 +11,14 @@ namespace kit2d {
 
   class Scene {
   public:
-    Scene(Director& director) : director(director) {}
+    Scene(Director& director);
     virtual ~Scene();
-    virtual void prepare();
     virtual void render(SpriteBatch& spriteBatch) = 0;
     virtual void update(float deltaTime) = 0;
+    virtual void prepare() = 0;
   protected:
     Director& director;
+    AssetManager& assetManager;
   };
 
 }

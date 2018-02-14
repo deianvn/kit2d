@@ -2,12 +2,23 @@
 
 namespace kit2d {
 
-  Stage::Stage() {
+  Stage::~Stage() {
 
   }
 
-  Stage::~Stage() {
+  AssetManager Stage::createAssetManager() {
+    return AssetManager { window };
+  }
 
+  void Stage::playScene(SceneRef scene) {
+    this->scene = scene;
+    scene->prepare();
+  }
+
+  void Stage::play() {
+    window.onRender([this](auto& renderer) { this->render(renderer); });
+    window.onUpdate([this](float deltaTime) { this->update(deltaTime); });
+    window.loop();
   }
 
   void Stage::render(Renderer& renderer) {
@@ -22,11 +33,6 @@ namespace kit2d {
     if (scene != nullptr) {
       scene->update(deltaTime);
     }
-  }
-
-  void Stage::playScene(SceneRef scene) {
-    this->scene = scene;
-    scene->prepare();
   }
 
 }

@@ -2,6 +2,9 @@
 
 namespace kit2d {
 
+  Scene::Scene(Director& director) :
+    director(director), assetManager(director.getAssetManager()) {}
+
   Scene::~Scene() {}
 
 }

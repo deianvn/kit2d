@@ -10,6 +10,8 @@ namespace kit2d {
 
   class Renderer {
   public:
+    Renderer(const Renderer& renderer) = delete;
+    Renderer(const Renderer&& renderer);
     Renderer(SDL_Renderer* sdlRenderer);
     ~Renderer();
     void setTarget();

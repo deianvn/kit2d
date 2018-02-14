@@ -2,6 +2,7 @@
 #define KIT2D_SCENE_DIRECTOR_HPP
 
 #include "Stage.hpp"
+#include "Scene.hpp"
 
 namespace kit2d {
 
@@ -10,11 +11,16 @@ namespace kit2d {
 
   class Director {
   public:
-    Director(Stage& stage) : stage(stage) {};
+    using SceneRef = std::shared_ptr<Scene>;
+    using AssetManagerRef = std::shared_ptr<AssetManager>;
+
+    Director(Stage& stage);
     virtual ~Director();
+    AssetManager& getAssetManager();
     void switchScene(SceneRef scene);
   private:
     Stage& stage;
+    AssetManager assetManager;
   };
 
 }

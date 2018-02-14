@@ -12,21 +12,13 @@ int main() {
 
 void loop(Kit& kit) {
   Rect bounds = kit.getDisplayBounds();
-  Window window { "My window",
+  Window window { "Bricks",
     bounds.x, bounds.y,
-    640, 480,
+    480, 800,
     Flags::WINDOW_OPENGL };
 
-  Stage stage;
+  Stage stage { window };
   Director director { stage };
   director.switchScene(std::make_shared<BricksScene>(director));
-
-  window.onRender([&stage](auto& renderer) {
-    renderer.setColor(255, 0, 0, 255);
-    stage.render(renderer);
-  });
-  window.onUpdate([&stage](auto deltaTime) {
-    stage.update(deltaTime);
-  });
-  window.loop();
+  stage.play();
 }
