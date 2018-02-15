@@ -3,14 +3,9 @@
 namespace kit2d {
 
   Director::Director(Stage& stage) :
-    stage(stage),
-    assetManager(stage.createAssetManager()) {}
+    stage(stage) {}
 
   Director::~Director() {}
-
-  AssetManager& Director::getAssetManager() {
-    return assetManager;
-  }
 
   void Director::switchScene(SceneRef scene) {
     stage.playScene(scene);

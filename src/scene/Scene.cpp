@@ -3,7 +3,7 @@
 namespace kit2d {
 
   Scene::Scene(Director& director) :
-    director(director), assetManager(director.getAssetManager()) {}
+    director(director) {}
 
   Scene::~Scene() {}
 

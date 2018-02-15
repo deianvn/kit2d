@@ -16,7 +16,6 @@ namespace kit2d {
 
     Director(Stage& stage);
     virtual ~Director();
-    AssetManager& getAssetManager();
     void switchScene(SceneRef scene);
   private:
     Stage& stage;

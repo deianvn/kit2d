@@ -1,19 +1,27 @@
 #include "../../include/kit2d/core/SDL2.hpp"
 #include "../../include/kit2d/core/Texture.hpp"
 #include "../../include/kit2d/core/Err.hpp"
+#include "Context.hpp"
 
 #include <iostream>
 
 namespace kit2d {
 
-  Texture::Texture(Context& context) : context(&context) {}
+  Texture::Texture() {}
+
+  Texture::Texture(Texture&& texture) {
+    sdlTexture = texture.sdlTexture;
+    size = texture.size;
+    texture.sdlTexture = nullptr;
+  }
 
   Texture::~Texture() {
+    std::cout << sdlTexture << std::endl;
     SDL_DestroyTexture(sdlTexture);
   }
 
   void Texture::loadFromFile(const char* path) {
-    sdlTexture = IMG_LoadTexture(context->handle, path);
+    sdlTexture = IMG_LoadTexture(Context::handle, path);
     if (sdlTexture == nullptr) {
       throw Err {};
     }
@@ -22,24 +30,6 @@ namespace kit2d {
 
   const Point& Texture::getSize() const {
     return size;
-  }
-
-  TextureRegion Texture::getRegion() const {
-    return TextureRegion {
-      sdlTexture,
-      SDL_Rect { 0, 0, size.x, size.y }
-    };
-  }
-
-  TextureRegion Texture::getRegion(Rect srcRect) const {
-    return getRegion(srcRect.x, srcRect.y, srcRect.width, srcRect.height);
-  }
-
-  TextureRegion Texture::getRegion(int x, int y, int width, int height) const {
-    return TextureRegion {
-      sdlTexture,
-      SDL_Rect { x, y, width, height }
-    };
   }
 
 }

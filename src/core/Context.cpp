@@ -1,7 +1,9 @@
-#include "../../include/kit2d/core/Context.hpp"
+#include "Context.hpp"
 
 namespace kit2d {
 
   Context::~Context() {}
+
+  SDL_Renderer* Context::handle { nullptr };
 
 }

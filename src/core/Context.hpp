@@ -1,15 +1,15 @@
 #ifndef KIT2D_CORE_CONTEXT_HPP
 #define KIT2D_CORE_CONTEXT_HPP
 
-#include "SDL2.hpp"
+#include "../../include/kit2d/core/SDL2.hpp"
 
 namespace kit2d {
 
   class Context {
   public:
-    Context(SDL_Renderer* handle) : handle(handle) {}
+    Context();
     virtual ~Context();
-    SDL_Renderer* handle;
+    static SDL_Renderer* handle;
   };
 
 }

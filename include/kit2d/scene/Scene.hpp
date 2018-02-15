@@ -18,7 +18,7 @@ namespace kit2d {
     virtual void prepare() = 0;
   protected:
     Director& director;
-    AssetManager& assetManager;
+    AssetManager assetManager {};
   };
 
 }

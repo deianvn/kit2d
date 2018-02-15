@@ -1,6 +1,7 @@
 #include "../../include/kit2d/core/Window.hpp"
 #include "../../include/kit2d/core/Err.hpp"
 #include "../../include/kit2d/core/SDL2.hpp"
+#include "Context.hpp"
 
 #include <iostream>
 
@@ -23,7 +24,7 @@ namespace kit2d {
     if (sdlRenderer == nullptr) {
       throw Err {};
     }
-    context = std::make_unique<Context>(sdlRenderer);
+    Context::handle = sdlRenderer;
   }
 
   Window::~Window() {
@@ -41,7 +42,7 @@ namespace kit2d {
 
   void Window::loop() {
     SDL_Event event;
-    Renderer renderer { *context };
+    Renderer renderer;
     bool running = true;
     uint64_t currentTime = SDL_GetPerformanceCounter(), lastTime;
 
@@ -60,10 +61,6 @@ namespace kit2d {
         onRenderCallback(renderer);
       }
     }
-  }
-
-  Context& Window::getContext() {
-    return *context;
   }
 
 }

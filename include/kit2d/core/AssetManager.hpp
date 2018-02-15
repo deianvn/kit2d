@@ -5,6 +5,7 @@
 #include <string>
 #include "Window.hpp"
 #include "Texture.hpp"
+#include "TextureView.hpp"
 #include "Atlas.hpp"
 
 namespace kit2d {
@@ -13,11 +14,11 @@ namespace kit2d {
   public:
 
     using TextureMap = std::map<std::string,
-      std::unique_ptr<Texture>>;
+      Texture>;
     using AtlasMap = std::map<std::string,
-      std::unique_ptr<Atlas>>;
+      Atlas>;
 
-    AssetManager(Context& context) : context(&context) {};
+    AssetManager();
     virtual ~AssetManager();
 
     void process();
@@ -25,13 +26,12 @@ namespace kit2d {
 
     void loadTexture(const char* path);
     void addTexture(const char* id, Texture texture);
-    const Texture& getTexture(const char* id);
+    TextureView getTexture(const char* id);
 
     void addAtlas(const char* id, Atlas atlas);
     void loadAtlas(const char* path);
 
   private:
-    Context* context;
     TextureMap textureMap;
     AtlasMap atlasMap;
   };

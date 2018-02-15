@@ -1,20 +1,21 @@
 #include <iostream>
 #include "../../include/kit2d/core/Renderer.hpp"
 #include "../../include/kit2d/core/Err.hpp"
+#include "Context.hpp"
 
 namespace kit2d {
 
-  Renderer::Renderer(Context& context) : context(&context) {}
+  Renderer::Renderer() {}
 
   Renderer::~Renderer() {}
 
   void Renderer::setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
-    if (SDL_SetRenderDrawColor(context->handle, r, g, b, a) != 0)
+    if (SDL_SetRenderDrawColor(Context::handle, r, g, b, a) != 0)
       throw Err {};
   }
 
   void Renderer::clear() {
-    if (SDL_RenderClear(context->handle) != 0)
+    if (SDL_RenderClear(Context::handle) != 0)
       throw Err {};
   }
 
@@ -24,20 +25,20 @@ namespace kit2d {
     destRect.y = y;
     destRect.w = size.x;
     destRect.h = size.y;
-    if (SDL_RenderCopy(context->handle, texture.sdlTexture,
+    if (SDL_RenderCopy(Context::handle, texture.sdlTexture,
       nullptr, &destRect) != 0) throw Err {};
   }
 
-  void Renderer::draw(TextureRegion textureRegion, int x, int y) {
+  void Renderer::draw(TextureView textureView, int x, int y) {
     destRect.x = x;
     destRect.y = y;
-    destRect.w = textureRegion.sdlSrcRect.w;
-    destRect.h = textureRegion.sdlSrcRect.h;
-    if (SDL_RenderCopy(context->handle, textureRegion.sdlTexture,
-      &textureRegion.sdlSrcRect, &destRect) != 0) throw Err {};
+    destRect.w = textureView.sdlTextureRect.w;
+    destRect.h = textureView.sdlTextureRect.h;
+    if (SDL_RenderCopy(Context::handle, textureView.sdlTexture,
+      &textureView.sdlTextureRect, &destRect) != 0) throw Err {};
   }
 
   void Renderer::present() {
-    SDL_RenderPresent(context->handle);
+    SDL_RenderPresent(Context::handle);
   }
 }

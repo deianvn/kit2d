@@ -18,7 +18,6 @@ namespace kit2d {
     virtual ~Stage();
     void play();
     void playScene(SceneRef scene);
-    AssetManager createAssetManager();
   private:
     void render(Renderer& renderer);
     void update(float deltaTime);
