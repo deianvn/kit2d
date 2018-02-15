@@ -1,5 +1,4 @@
-#include "BricksScene.hpp"
-#include "../include/kit2d/scene.hpp"
+#include "../include/kit2d/sprite.hpp"
 
 using namespace kit2d;
 
@@ -16,9 +15,5 @@ void loop(Kit& kit) {
     bounds.x, bounds.y,
     480, 800,
     Flags::WINDOW_OPENGL };
-
-  Stage stage { window };
-  Director director { stage };
-  director.switchScene(std::make_shared<BricksScene>(director));
-  stage.play();
+  window.loop();
 }
