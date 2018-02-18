@@ -5,6 +5,5 @@
 #include "sprite.hpp"
 #include "scene/Stage.hpp"
 #include "scene/Scene.hpp"
-#include "scene/Director.hpp"
 
 #endif

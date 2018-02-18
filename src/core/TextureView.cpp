@@ -17,7 +17,6 @@ namespace kit2d {
   TextureView::TextureView(const Texture& texture, Rect textureRect) :
     sdlTexture(texture.sdlTexture) {
 
-    Point size = texture.getSize();
     sdlTextureRect.x = textureRect.x;
     sdlTextureRect.y = textureRect.y;
     sdlTextureRect.w = textureRect.width;

@@ -26,13 +26,13 @@ file(GLOB SPRITE_SOURCE_FILES
 )
 add_library(kit2d-sprite ${SPRITE_SOURCE_FILES})
 
-#file(GLOB SCENE_SOURCE_FILES
-#  "src/scene/*.cpp"
-#)
-#add_library(kit2d-scene ${SCENE_SOURCE_FILES})
+file(GLOB SCENE_SOURCE_FILES
+  "src/scene/*.cpp"
+)
+add_library(kit2d-scene ${SCENE_SOURCE_FILES})
 
 file(GLOB EXAMPLE_SOURCE_FILES
   "example/*.cpp"
 )
 add_executable(bricks ${EXAMPLE_SOURCE_FILES})
-target_link_libraries(bricks kit2d kit2d-sprite)
+target_link_libraries(bricks kit2d kit2d-sprite kit2d-scene)

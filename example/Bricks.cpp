@@ -1,4 +1,5 @@
-#include "../include/kit2d/sprite.hpp"
+#include "../include/kit2d/scene.hpp"
+#include "PlayScene.hpp"
 
 using namespace kit2d;
 
@@ -15,5 +16,7 @@ void loop(Kit& kit) {
     bounds.x, bounds.y,
     480, 800,
     Flags::WINDOW_OPENGL };
-  window.loop();
+  kit2d::Stage stage { window };
+  stage.setScene(std::make_shared<PlayScene>(stage));
+  stage.play();
 }
