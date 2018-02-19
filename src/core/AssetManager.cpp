@@ -8,16 +8,20 @@ namespace kit2d {
   AssetManager::~AssetManager() {}
 
   void AssetManager::loadTexture(const char* path) {
-    auto result = textureMap.insert(
-      std::make_pair(std::string { path }, Texture {}));
-    if (result.second) {
-      auto& pair = result.first;
-      pair->second.loadFromFile(path);
-    }
+    auto process = [this, &path]() {
+      auto result = this->textureMap.insert(
+        std::make_pair(std::string { path }, Texture {}));
+      if (result.second) {
+        auto& pair = result.first;
+        pair->second.loadFromFile(path);
+      }
+    };
+    processes.push(process);
   }
 
   void AssetManager::addTexture(const char* id, Texture texture) {
-
+    textureMap.insert(
+      std::make_pair(std::string { id }, texture));
   }
 
   TextureView AssetManager::getTexture(const char* id) {
@@ -33,7 +37,18 @@ namespace kit2d {
   }
 
   void AssetManager::process() {
+    processing = true;
+    while (!processes.empty()) {
+      auto process = processes.front();
+      process();
+      processes.pop();
+    }
+    processing = false;
+  }
 
+  void AssetManager::processAsync() {
+    processing = true;
+    std::async([this]() { this->process(); });
   }
 
   bool AssetManager::ready() {

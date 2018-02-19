@@ -2,7 +2,12 @@
 #define KIT2D_CORE_ASSET_MANAGER_HPP
 
 #include <map>
+#include <queue>
 #include <string>
+#include <atomic>
+#include <functional>
+#include <future>
+
 #include "Window.hpp"
 #include "Texture.hpp"
 #include "TextureView.hpp"
@@ -22,6 +27,7 @@ namespace kit2d {
     virtual ~AssetManager();
 
     void process();
+    void processAsync();
     bool ready();
 
     void loadTexture(const char* path);
@@ -34,6 +40,8 @@ namespace kit2d {
   private:
     TextureMap textureMap;
     AtlasMap atlasMap;
+    std::atomic<bool> processing { false };
+    std::queue<std::function<void()>> processes {};
   };
 
 }

@@ -6,7 +6,9 @@ namespace kit2d {
 
   Actor::~Actor() {}
 
-  void Actor::update(float deltaTime) {}
+  void prepare(AssetManager& assetManager) {}
+
+  void Actor::act(float deltaTime) {}
 
   void Actor::draw(SpriteBatch spriteBatch) {}
 

@@ -16,6 +16,7 @@ namespace kit2d {
 
   void Stage::setScene(std::shared_ptr<Scene> scene) {
     this->scene = scene;
+    scene->prepare();
   }
 
   void Stage::play() {

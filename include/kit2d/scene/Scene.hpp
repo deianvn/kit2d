@@ -1,6 +1,7 @@
 #ifndef KIT2D_SCENE_SCENE_HPP
 #define KIT2D_SCENE_SCENE_HPP
 
+#include "../core/AssetManager.hpp"
 #include "../sprite/SpriteBatch.hpp"
 
 namespace kit2d {
@@ -19,6 +20,7 @@ namespace kit2d {
     virtual void render(SpriteBatch& spriteBatch);
   private:
     Stage* stage;
+    AssetManager assetManager;
   };
 
 }
