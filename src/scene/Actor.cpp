@@ -6,7 +6,7 @@ namespace kit2d {
 
   Actor::~Actor() {}
 
-  void prepare(AssetManager& assetManager) {}
+  void Actor::prepare(AssetManager& assetManager) {}
 
   void Actor::act(float deltaTime) {}
 

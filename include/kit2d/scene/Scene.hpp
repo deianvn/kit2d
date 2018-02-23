@@ -18,7 +18,7 @@ namespace kit2d {
     virtual void prepare();
     virtual void update(float deltaTime);
     virtual void render(SpriteBatch& spriteBatch);
-  private:
+  protected:
     Stage* stage;
     AssetManager assetManager;
   };
