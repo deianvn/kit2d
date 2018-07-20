@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.0.2)
 project (kit2d)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake-modules/")
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -36,3 +36,5 @@ file(GLOB EXAMPLE_SOURCE_FILES
 )
 add_executable(bricks ${EXAMPLE_SOURCE_FILES})
 target_link_libraries(bricks kit2d kit2d-sprite kit2d-scene)
+
+file(COPY ${CMAKE_SOURCE_DIR}/example/assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
