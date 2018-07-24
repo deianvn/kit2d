@@ -11,6 +11,7 @@ namespace kit2d {
     Stage(Window& window);
     void setScene(std::shared_ptr<Scene> scene);
     void play();
+    Rect bounds();
   private:
     Window& window;
     SpriteBatch spriteBatch {};

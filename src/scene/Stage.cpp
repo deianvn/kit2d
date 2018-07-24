@@ -23,4 +23,8 @@ namespace kit2d {
     window.loop();
   }
 
+  Rect Stage::bounds() {
+    return Rect { window->x, y, width, height };
+  }
+
 }

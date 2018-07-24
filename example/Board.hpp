@@ -5,11 +5,15 @@
 
 class Board : public kit2d::Actor {
 public:
+  Board(int x, int y, int width, int height) :
+    x(x), y(y), width(width), height(height) {}
   void prepare(kit2d::AssetManager& assetManager);
   void draw(kit2d::SpriteBatch spriteBatch);
   void load(const char* path);
-  void center(int width, int height);
 private:
+  const int
+    bricks_width = 64,
+    bricks_height = 64;
   int x, y, width, height;
   std::vector<std::shared_ptr<kit2d::Actor>> bricks;
   std::shared_ptr<kit2d::Actor> player;

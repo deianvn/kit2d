@@ -19,17 +19,14 @@ void Board::prepare(kit2d::AssetManager& assetManager) {
 void Board::load(const char* path) {
   std::ifstream file;
   file.open(path);
+  std::string data;
   if (file.is_open()) {
     std::string line;
     while (std::getline(file, line)) {
-      std::cout << line << std::endl;
+      data += line + "\n";
     }
   } else {
     throw std::runtime_error { "Can not read level data" };
   }
-}
-
-void Board::center(int width, int height) {
-  this->x = (width - this->width) / 2;
-  this->y = (height - this->height) / 2;
+  std::cout << data;
 }
