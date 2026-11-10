@@ -6,18 +6,18 @@
 
 namespace kit2d {
 
-  class TextureView {
-  public:
-    TextureView();
-    TextureView(const Texture& texture);
-    TextureView(const Texture& texture, const Rect textureRect);
-    void setTexture(const Texture& texture);
-    void setTexture(const Texture& texture, const Rect textureRect);
-    void setTextureRect(const Rect& textureRect);
+    class TextureView {
+    public:
+        TextureView();
+        TextureView(const Texture& texture);
+        TextureView(const Texture& texture, const Rect textureRect);
+        void setTexture(const Texture& texture);
+        void setTexture(const Texture& texture, const Rect textureRect);
+        void setTextureRect(const Rect& textureRect);
 
-    SDL_Texture* sdlTexture { nullptr };
-    SDL_Rect sdlTextureRect {};
-  };
+        SDL_Texture* sdlTexture { nullptr };
+        SDL_Rect sdlTextureRect {};
+    };
 
 }
 

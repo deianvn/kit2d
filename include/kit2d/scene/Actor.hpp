@@ -6,15 +6,23 @@
 
 namespace kit2d {
 
-  class Actor {
-  public:
-    Actor();
-    virtual ~Actor();
-    virtual void prepare(AssetManager& assetManager);
-    virtual void act(float deltaTime);
-    virtual void draw(SpriteBatch spriteBatch);
-  private:
-  };
+    class Actor {
+    public:
+        Actor() = default;
+        explicit Actor(Sprite sprite);
+        virtual ~Actor() = default;
+        void setSprite(Sprite sprite);
+        Sprite& getSprite();
+        const Sprite& getSprite() const;
+        void setPosition(float x, float y);
+        const Vec2& getPosition() const;
+        virtual void prepare(AssetManager& assetManager);
+        virtual void act(float deltaTime);
+        virtual void draw(SpriteBatch& spriteBatch);
+
+    private:
+        Sprite sprite;
+    };
 
 }
 

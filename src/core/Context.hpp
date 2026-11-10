@@ -5,12 +5,12 @@
 
 namespace kit2d {
 
-  class Context {
-  public:
-    Context();
-    virtual ~Context();
-    static SDL_Renderer* handle;
-  };
+    class Context {
+    public:
+        Context();
+        virtual ~Context();
+        static SDL_Renderer* handle;
+    };
 
 }
 

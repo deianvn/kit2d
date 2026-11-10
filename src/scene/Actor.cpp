@@ -1,15 +1,44 @@
 #include "../../include/kit2d/scene/Actor.hpp"
 
+#include <utility>
+
 namespace kit2d {
 
-  Actor::Actor() {}
+    Actor::Actor(Sprite sprite) : sprite(std::move(sprite)) {
+        this->sprite.restart();
+    }
 
-  Actor::~Actor() {}
+    void Actor::setSprite(Sprite sprite) {
+        sprite.setPosition(this->sprite.position.x, this->sprite.position.y);
+        sprite.restart();
+        this->sprite = std::move(sprite);
+    }
 
-  void Actor::prepare(AssetManager& assetManager) {}
+    Sprite& Actor::getSprite() {
+        return sprite;
+    }
 
-  void Actor::act(float deltaTime) {}
+    const Sprite& Actor::getSprite() const {
+        return sprite;
+    }
 
-  void Actor::draw(SpriteBatch spriteBatch) {}
+    void Actor::setPosition(float x, float y) {
+        sprite.setPosition(x, y);
+    }
+
+    const Vec2& Actor::getPosition() const {
+        return sprite.position;
+    }
+
+    void Actor::prepare(AssetManager&) {
+    }
+
+    void Actor::act(float deltaTime) {
+        sprite.update(deltaTime);
+    }
+
+    void Actor::draw(SpriteBatch& spriteBatch) {
+        sprite.draw(spriteBatch);
+    }
 
 }

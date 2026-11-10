@@ -3,6 +3,7 @@
 
 namespace kit2d {
 
-  Err::Err() : std::runtime_error(SDL_GetError()) {}
+    Err::Err() : std::runtime_error(SDL_GetError()) {
+    }
 
 }

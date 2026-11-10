@@ -2,8 +2,9 @@
 
 namespace kit2d {
 
-  Context::~Context() {}
+    Context::~Context() {
+    }
 
-  SDL_Renderer* Context::handle { nullptr };
+    SDL_Renderer* Context::handle { nullptr };
 
 }

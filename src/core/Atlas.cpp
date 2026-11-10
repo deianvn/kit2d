@@ -2,12 +2,10 @@
 
 namespace kit2d {
 
-  Atlas::Atlas(const char* path) {
+    Atlas::Atlas(const char* path) {
+    }
 
-  }
-
-  Atlas::~Atlas() {
-    
-  }
+    Atlas::~Atlas() {
+    }
 
 }

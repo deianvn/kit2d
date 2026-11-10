@@ -5,10 +5,10 @@
 
 namespace kit2d {
 
-  class Err : public std::runtime_error {
-  public:
-    Err();
-  };
+    class Err : public std::runtime_error {
+    public:
+        Err();
+    };
 
 }
 

@@ -3,12 +3,13 @@
 
 namespace kit2d {
 
-  class Atlas {
-  public:
-    Atlas(const char* path);
-    virtual ~Atlas();
-  private:
-  };
+    class Atlas {
+    public:
+        Atlas(const char* path);
+        virtual ~Atlas();
+
+    private:
+    };
 
 }
 

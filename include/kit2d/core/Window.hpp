@@ -9,26 +9,33 @@
 #include "Renderer.hpp"
 #include "Texture.hpp"
 #include "Flags.hpp"
+#include "Rect.hpp"
 
 namespace kit2d {
 
-  class Window {
-  public:
-    Window(const char* title,
-      int x, int y,
-      int width, int height,
-      uint32_t flags);
+    class Window {
+    public:
+        Window(
+            const char* title,
+            int x,
+            int y,
+            int width,
+            int height,
+            uint32_t flags
+        );
 
-    ~Window();
-    void loop();
-    void onRender(OnRenderCallback onRenderCallback);
-    void onUpdate(OnUpdateCallback OnUpdateCallback);
-  private:
-    SDL_Window* sdlWindow;
-    SDL_Renderer* sdlRenderer;
-    OnRenderCallback onRenderCallback;
-    OnUpdateCallback onUpdateCallback;
-  };
+        ~Window();
+        void loop();
+        void onRender(OnRenderCallback onRenderCallback);
+        void onUpdate(OnUpdateCallback OnUpdateCallback);
+        Rect getBounds() const;
+
+    private:
+        SDL_Window* sdlWindow;
+        SDL_Renderer* sdlRenderer;
+        OnRenderCallback onRenderCallback;
+        OnUpdateCallback onUpdateCallback;
+    };
 
 }
 

@@ -6,22 +6,23 @@
 
 namespace kit2d {
 
-  class Stage;
+    class Stage;
 
-  class Scene {
-  public:
-    Scene();
-    Scene(Stage& stage);
-    virtual ~Scene();
-    void setStage(Stage& stage);
-    Stage& getStage();
-    virtual void prepare();
-    virtual void update(float deltaTime);
-    virtual void render(SpriteBatch& spriteBatch);
-  protected:
-    Stage* stage;
-    AssetManager assetManager;
-  };
+    class Scene {
+    public:
+        Scene();
+        Scene(Stage& stage);
+        virtual ~Scene();
+        void setStage(Stage& stage);
+        Stage& getStage();
+        virtual void prepare();
+        virtual void update(float deltaTime);
+        virtual void render(SpriteBatch& spriteBatch);
+
+    protected:
+        Stage* stage;
+        AssetManager assetManager;
+    };
 
 }
 

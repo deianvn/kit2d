@@ -3,24 +3,30 @@
 
 namespace kit2d {
 
-  Scene::Scene() {}
+    Scene::Scene() : stage(nullptr) {
+    }
 
-  Scene::Scene(Stage& stage) : stage(&stage) {}
+    Scene::Scene(Stage& stage) : stage(&stage) {
+    }
 
-  Scene::~Scene() {}
+    Scene::~Scene() {
+    }
 
-  void Scene::setStage(Stage& stage) {
-    this->stage = &stage;
-  }
+    void Scene::setStage(Stage& stage) {
+        this->stage = &stage;
+    }
 
-  Stage& Scene::getStage() {
-    return *stage;
-  }
+    Stage& Scene::getStage() {
+        return *stage;
+    }
 
-  void Scene::prepare() {}
+    void Scene::prepare() {
+    }
 
-  void Scene::update(float deltaTime) {}
+    void Scene::update(float deltaTime) {
+    }
 
-  void Scene::render(SpriteBatch& spriteBatch) {}
+    void Scene::render(SpriteBatch& spriteBatch) {
+    }
 
 }

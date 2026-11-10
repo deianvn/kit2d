@@ -6,17 +6,18 @@
 
 namespace kit2d {
 
-  class Stage {
-  public:
-    Stage(Window& window);
-    void setScene(std::shared_ptr<Scene> scene);
-    void play();
-    Rect bounds();
-  private:
-    Window& window;
-    SpriteBatch spriteBatch {};
-    std::shared_ptr<Scene> scene { nullptr };
-  };
+    class Stage {
+    public:
+        Stage(Window& window);
+        void setScene(std::shared_ptr<Scene> scene);
+        void play();
+        Rect bounds();
+
+    private:
+        Window& window;
+        SpriteBatch spriteBatch {};
+        std::shared_ptr<Scene> scene { nullptr };
+    };
 
 }
 

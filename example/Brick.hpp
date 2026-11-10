@@ -3,13 +3,34 @@
 
 #include "../include/kit2d/scene.hpp"
 
-class Brick : public Actor {
+#include <string_view>
+
+class Brick : public kit2d::Actor {
 public:
-  Brick();
-  ~Brick();
-  void setSprite(Sprite sprite);
+    static constexpr std::string_view types { "SORGCV" };
+
+    Brick(
+        float x,
+        float y,
+        float width,
+        float height,
+        char type
+    );
+    void prepare(kit2d::AssetManager& assetManager) override;
+    void reset();
+    int hit();
+    bool isDestroyed() const {
+        return hits == 0;
+    }
+    int getHitsRemaining() const {
+        return hits;
+    }
+
 private:
-  Sprite sprite {};
+    char type;
+    int hits;
+    std::vector<kit2d::TextureView> frames;
+    std::vector<kit2d::TextureView> damagedFrames;
 };
 
 #endif
